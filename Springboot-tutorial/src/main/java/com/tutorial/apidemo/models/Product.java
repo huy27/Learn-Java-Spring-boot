@@ -1,26 +1,30 @@
 package com.tutorial.apidemo.models;
 
-import lombok.*;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
 
 import javax.persistence.*;
-import java.util.UUID;
 
 @Data
 @NoArgsConstructor
 @RequiredArgsConstructor
 @Entity
+@Table(name = "Product")
 public class Product {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    private Integer id;
     @NonNull
-    @Column(name = "ProductName")
+    @Column(name = "product_name")
     private String productName;
     @NonNull
-    @Column(name = "Price")
+    @Column(name = "price")
     private Double price;
     @NonNull
-    @Column(name = "Url")
+    @Column(name = "url")
     private String url;
 
     @Override

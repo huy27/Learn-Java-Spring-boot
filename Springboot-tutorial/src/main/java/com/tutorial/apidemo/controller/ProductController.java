@@ -24,7 +24,7 @@ public class ProductController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<ResponseObject> findById(@PathVariable(required = false) Long id) {
+    public ResponseEntity<ResponseObject> findById(@PathVariable(required = false) Integer id) {
         Optional<Product> product = repository.findById(id);
         return product.isPresent() ? ResponseEntity.ok(new ResponseObject("Ok", "Query Product success", product)) : ResponseEntity.status(HttpStatus.NOT_FOUND).body(new ResponseObject("Not Found", "Cannot find product with id = " + id, ""));
     }
@@ -37,7 +37,7 @@ public class ProductController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<ResponseObject> updateProduct(@PathVariable Long id, @RequestBody Product product) {
+    public ResponseEntity<ResponseObject> updateProduct(@PathVariable Integer id, @RequestBody Product product) {
         Optional<Product> optionalUpdateProduct = repository.findById(id);
         if (optionalUpdateProduct.isPresent()) {
             Product updateProduct = optionalUpdateProduct.get();
@@ -50,7 +50,7 @@ public class ProductController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<ResponseObject> deleteProduct(@PathVariable Long id) {
+    public ResponseEntity<ResponseObject> deleteProduct(@PathVariable Integer id) {
         Optional<Product> optionalDeleteProduct = repository.findById(id);
         if (optionalDeleteProduct.isPresent()) {
             repository.deleteById(id);
