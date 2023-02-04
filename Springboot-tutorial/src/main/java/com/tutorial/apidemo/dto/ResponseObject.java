@@ -1,4 +1,4 @@
-package com.tutorial.apidemo.database;
+package com.tutorial.apidemo.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

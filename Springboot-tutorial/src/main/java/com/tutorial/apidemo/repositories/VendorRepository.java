@@ -1,9 +1,9 @@
 package com.tutorial.apidemo.repositories;
 
-import com.tutorial.apidemo.Entities.Product;
+import com.tutorial.apidemo.Entities.Vendor;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface ProductRepository extends JpaRepository<Product, Integer> {
+public interface VendorRepository extends JpaRepository<Vendor, Integer> {
 }
