@@ -21,4 +21,9 @@ public class OrderController {
                 ? ResponseEntity.ok(responseObject)
                 : ResponseEntity.badRequest().body(responseObject);
     }
+
+    @GetMapping
+    public ResponseEntity getOrders(Integer customerId) {
+        return ResponseEntity.ok(orderService.getOrders(customerId));
+    }
 }
